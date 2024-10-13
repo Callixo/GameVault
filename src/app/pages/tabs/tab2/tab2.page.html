@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Jogos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let game of games">
+        <ion-card (click)="goToGameDetails(game.id)">
+          <img [src]="game.background_image" alt="Capa do jogo" />
+          <ion-card-content>
+            <ion-card-title>{{ game.name }}</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

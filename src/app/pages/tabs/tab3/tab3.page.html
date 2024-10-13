@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Foto de Perfil -->
+  <ion-card>
+    <ion-card-content class="ion-text-center">
+      <ion-avatar>
+        <img src="assets/profile-placeholder.png" alt="Foto de perfil">
+      </ion-avatar>
+      <ion-button expand="block" fill="clear" color="primary">Atualizar Foto</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Informações do Usuário -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nome de Usuário</ion-label>
+      <ion-input value="Nome do Usuário" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input value="usuario@exemplo.com" readonly></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Configurações -->
+  <ion-list>
+    <ion-item>
+      <ion-icon name="settings-outline" slot="start"></ion-icon>
+      <ion-label>Configurações de Conta</ion-label>
+      <ion-button expand="block" fill="clear" color="medium">Editar Perfil</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-label>Alterar Senha</ion-label>
+      <ion-button expand="block" fill="clear" color="medium">Alterar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Logout -->
+  <ion-button expand="block" color="danger" (click)="logout()">Logout</ion-button>
+</ion-content>
+

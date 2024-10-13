@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Minha Lista de Jogos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="gameList.length > 0; else noGames">
+    <ion-item *ngFor="let game of gameList">
+      <ion-thumbnail slot="start">
+        <img [src]="game.background_image" alt="{{ game.name }}" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ game.name }}</h2>
+        <p>{{ game.released | date }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noGames>
+    <ion-text color="medium">
+      <h3>Você ainda não adicionou jogos à lista.</h3>
+    </ion-text>
+  </ng-template>
+</ion-content>
+

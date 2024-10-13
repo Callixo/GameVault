@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Senha</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="login()">Login</ion-button>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="full" fill="clear" routerLink="/cadastro">Cadastrar</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="full" fill="clear" routerLink="/esqueci-senha">Esqueci a senha</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
