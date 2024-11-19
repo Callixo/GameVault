@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,12 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  constructor(private router: Router) {}
+  email = '';
+  password = '';
 
-  login() {
-    // Aqui você pode adicionar a lógica de login, como validação de email e senha.
-    // Por enquanto, vamos apenas redirecionar para a página principal (tabs) após o login.
-    
-    this.router.navigate(['/tabs']);
+  constructor(private authService: AuthService, private router: Router) {}
+
+  async login() {
+    try {
+      await this.authService.login(this.email, this.password);
+      this.router.navigate(['/tabs']); // Redireciona para a página principal após login
+    } catch (error) {
+      console.error('Erro no login:', error);
+    }
   }
 }
