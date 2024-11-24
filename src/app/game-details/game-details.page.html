@@ -49,9 +49,15 @@
     </ion-card-content>
 
     <!-- Botão para adicionar o jogo à lista -->
-    <ion-button expand="block" color="primary" (click)="addToGameList()">
-      Add Lista
+    <ion-button color="primary" (click)="addToList()">
+      Adicionar à Lista
     </ion-button>
+    
+    <!-- Mensagem de Feedback -->
+    <span *ngIf="feedbackMessage" class="feedback-message">
+      {{ feedbackMessage }}
+    </span>
+    
   </ion-card>
 </ion-content>
 

@@ -4,24 +4,46 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ListService {
-  private gameList: any[] = []; // Array para armazenar os jogos adicionados
+  private gameList: any[] = [];
+  private reviews: { [key: string]: { text: string } } = {};
 
   constructor() {}
 
-  // Adiciona um jogo à lista se ele ainda não estiver nela
-  addGameToList(game: any): boolean {
-    const exists = this.gameList.some((item) => item.id === game.id);
+  getGameList() {
+    return this.gameList;
+  }
+
+  removeGame(game: any) {
+    this.gameList = this.gameList.filter((g) => g.id !== game.id);
+  }
+
+  getGameById(id: string) {
+    return this.gameList.find((game) => game.id === id); // Procura o jogo na lista pelo ID
+  }  
+
+  saveReview(gameId: string, review: { text: string }) {
+    this.reviews[gameId] = review; // Armazena a review associada ao gameId
+    console.log('Review salva no serviço:', this.reviews);
+  }
+  
+  getReview(gameId: string) {
+    return this.reviews[gameId]; // Retorna a review associada ao gameId
+  }
+  
+
+  addGameToList(game: any) {
+    // Verifica se o jogo já está na lista
+    const exists = this.gameList.some((g) => g.id === game.id);
+  
     if (!exists) {
       this.gameList.push(game);
       return true; // Retorna true se o jogo foi adicionado
     }
-    return false; // Retorna false se o jogo já estava na lista
+  
+    return false; // Retorna false se o jogo já existia
   }
-
-  // Retorna todos os jogos da lista
-  getGameList() {
-    return this.gameList;
-  }
+  
 }
+
 
 

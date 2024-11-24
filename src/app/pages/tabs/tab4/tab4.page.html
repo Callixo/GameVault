@@ -1,13 +1,48 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Bem vindo(a) ao GameVault!</ion-title>
+    <ion-title>Bem-vindo(a) ao GameVault!</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tab4</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- Últimos Lançamentos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Últimos Lançamentos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let game of latestGames">
+          <ion-thumbnail slot="start">
+            <img [src]="game.image" alt="Imagem do Jogo">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ game.name }}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Criar Lista -->
+  <div style="text-align: center; margin: 20px;">
+    <h2>Deseja criar uma lista?</h2>
+    <ion-button expand="block" color="primary" (click)="goToTab2()">Criar Lista</ion-button>
+  </div>
+
+  <!-- Sobre -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Sobre</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Bem-vindo(a) ao nosso aplicativo! 
+        Aqui você pode explorar os jogos mais recentes, 
+        criar suas próprias listas 
+        e gerenciar suas avaliações.
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

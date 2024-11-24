@@ -48,6 +48,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/tabs/tab4/tab4.module').then((m) => m.Tab4PageModule),
   },
+  {
+    path: 'review/:id', // Rota para a página de review
+    loadChildren: () =>
+      import('./review/review.module').then((m) => m.ReviewPageModule),
+  },
 ];
 
 @NgModule({

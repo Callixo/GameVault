@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Review: {{ gameName }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="saveReview()">
+    <ion-item>
+      <ion-label position="stacked">Sua Review</ion-label>
+      <ion-textarea [(ngModel)]="reviewText" name="reviewText"></ion-textarea>
+    </ion-item>
+    <ion-button expand="block" color="primary" type="submit">
+      Salvar Review
+    </ion-button>
+    <span *ngIf="feedbackMessage" class="feedback-message">
+      {{ feedbackMessage }}
+    </span>
+    
+  </form>
+
+  <ion-button expand="block" color="tertiary" (click)="editReview()" *ngIf="isEditing">
+    Editar Review
+  </ion-button>
+</ion-content>
+

@@ -56,4 +56,12 @@ ion-card {
       }
     }
   }
+ 
+  .feedback-message {
+    display: block;
+    margin-top: 10px;
+    color: #4caf50; /* Verde para feedback positivo */
+    font-size: 0.9rem;
+    text-align: center;
+  }
   
